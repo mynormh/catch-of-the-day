@@ -59,3 +59,4 @@
   - You can name your props whatever you want as long as they don't override the HTML attributes of the element.
   - If you want to pass any prop other than a string you have to use curly brackets.
   - In DevTools, just like $0 helps reference the selected element for Reacth $r helps reference the selected component.
+  - In Stateless Functional Components you can destructure the argument `props` into each individual prop, this way you can reference each variable directly.
