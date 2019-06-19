@@ -26,6 +26,32 @@
 
 - `this` inside a component refers to the component/class instance, so it points to the instance where that component is being used (i.e. the JSX code where it's called). You can have as many instances of a component as you like.
 
+- Stateless Functional Components are components that only present data or they are just markup and styles, they don't hold any state. So if a Component only has a `render()` method then it can be written as a Stateless Functional Component.
+
+- Stateless Functional Components are written as functions, instead of classes, and can be written as regular function or arrow functions (preferred style). They also don't have a `this` associated so to use props you have to pass props as an argument of the component (you can even destructure `props` to each individual prop).
+
+  - Component
+
+    ```JS
+    class MyComponent extends React.Component {
+      render() {
+        return (
+          <h1>Title</h1>
+          <p>My Component is {this.props.myProp}</p>
+        )
+      }
+    }
+    ```
+
+  - Stateless Functional Component
+
+  ```JS
+  const MyComponent = props => (
+    <h1>Title</h1>
+    <p>My Component is {props.myProp}</p>
+  );
+  ```
+
 - React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
