@@ -52,6 +52,12 @@
   );
   ```
 
+- The router is not baked-in to React, so you need third party packages to route the app. In React, even the router is a Component. Popular routers are: ReactRouter, Next and ReachRouter.
+
+- In the router component you define each of the routes and what component you want to render for it, you can create a fallback route and render a NotFound Component for any route that doesn't match.
+
+- ReactRouter will automatically add information about the Route into the rendered component, it adds things like parameters and if you have a parameter in the path of the defined Route (e.g. `/:myParam`) it will automatically fill it with the parameter in the URL.
+
 - React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
@@ -60,3 +66,4 @@
   - If you want to pass any prop other than a string you have to use curly brackets.
   - In DevTools, just like $0 helps reference the selected element for Reacth $r helps reference the selected component.
   - In Stateless Functional Components you can destructure the argument `props` into each individual prop, this way you can reference each variable directly.
+  - In React if you put a `value=""` in a `<input/>` it will throw a warning, because values of inputs always need to be attached to state. So if you need text in an input you use the property `defaultValue`.
