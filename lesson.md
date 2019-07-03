@@ -63,11 +63,13 @@
 - There are two ways to handle inputs in React:
 
   - Refs: It does touch the DOM elements. A ref helps us to reference an actual DOM node on the page.
-  - Sync the input value into state:
+  - Sync the input value into state.
 
 - `this` outside of the `render()` function is `undefined` due to the binding in React and all of the methods that come from the class `React.Component` we extend that are bound by default but the ones we create are not. The solution to this is to bind our own methods, and instead of doing it in the constructor (it would be cumbersome), we actually declare a class property that will be set to an arrow function and since class properties will be bound to the instance rather than `undefined`.
 
-* React rules/tips:
+- To change routes we use pushState, it will allow us to change the url without reloading the page or losing data in memory. Since React Router is the parent component of all our components and it passes some data with props to the components, we can access this data directly
+
+- React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
   - To add a comment in JSX you have to use a block comment like this `{ /* comment */ }`.
