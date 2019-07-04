@@ -67,7 +67,15 @@
 
 - `this` outside of the `render()` function is `undefined` due to the binding in React and all of the methods that come from the class `React.Component` we extend that are bound by default but the ones we create are not. The solution to this is to bind our own methods, and instead of doing it in the constructor (it would be cumbersome), we actually declare a class property that will be set to an arrow function and since class properties will be bound to the instance rather than `undefined`.
 
-- To change routes we use pushState, it will allow us to change the url without reloading the page or losing data in memory. Since React Router is the parent component of all our components and it passes some data with props to the components, we can access this data directly
+- To change routes we use pushState, it will allow us to change the url without reloading the page or losing data in memory. Since React Router is the parent component of all our components and it passes some data with props to the components, we can access this data directly.
+
+- In React, instead of thinking about updating all of the pieces on the website, we want to update the data and let React handle where on the website it should be updated. So we update our state (single source of truth) and then React knows where to display the updated data.
+
+- Every component in React can have it's own state but it's often the case where you have a parent state on a higher component and then you pass that state down to the children components, so this is a method used to share data/state between components.
+
+- Initial state can be set using the constructor or can be also done using a class property.
+
+- You can't add directly data from different components into state because the methods that update state and the actual state always need to live in the exact same component. So you pass down the methods to the children components via props and then use React's state API to update the actual state.
 
 - React rules/tips:
   - To assign a class to a element use `className=""`.
@@ -81,3 +89,8 @@
   - When indicating the function to run on an event we don't include `()` at the end of the function because that would cause the function to run when the component mounts. `onClick={this.handleClick()}` vs `onClick={this.handleClick}`.
   - The `constructor()` method is run before the component is created.
   - If you need to access `this` inside a custom method (not one provided by `React.Component`) then you must use class properties set to an arrow function or use the `constructor()` method.
+  - One method to share data/state between components is to store it in a higher component and then pass it down to the children. State can be passed down but not up.
+  - To start adding state you first need to set the initial state, what the state initially looks like when the component mounts.
+  - The methods that update state and the actual state always have to live in the exact same component, you can't add state from one component to another directly. Instead you pass down the state methods to the children components via props.
+  - The only way to update the actual state inside the update state methods is with React's state API. But you don't want to mutate state by modifying it directly, so you first create a copy of the current state.
+  - When updating state with `this.setState()` we don't have to pass the entire state, we can pass only the state that changed.
