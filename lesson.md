@@ -83,7 +83,7 @@
   - To add a comment in JSX you have to use a block comment like this `{ /* comment */ }`.
   - You can name your props whatever you want as long as they don't override the HTML attributes of the element.
   - If you want to pass any prop other than a string you have to use curly brackets.
-  - In DevTools, just like $0 helps reference the selected element for Reacth $r helps reference the selected component.
+  - In DevTools, just like $0 helps reference the selected element for React $r helps reference the selected component.
   - In Stateless Functional Components you can destructure the argument `props` into each individual prop, this way you can reference each variable directly.
   - In React if you put a `value=""` in a `<input/>` it will throw a warning, because values of inputs always need to be attached to state. So if you need text in an input you use the property `defaultValue`.
   - When indicating the function to run on an event we don't include `()` at the end of the function because that would cause the function to run when the component mounts. `onClick={this.handleClick()}` vs `onClick={this.handleClick}`.
@@ -94,3 +94,4 @@
   - The methods that update state and the actual state always have to live in the exact same component, you can't add state from one component to another directly. Instead you pass down the state methods to the children components via props.
   - The only way to update the actual state inside the update state methods is with React's state API. But you don't want to mutate state by modifying it directly, so you first create a copy of the current state.
   - When updating state with `this.setState()` we don't have to pass the entire state, we can pass only the state that changed.
+  - All of the assets that will show up in our app, have to go in the public folder.
