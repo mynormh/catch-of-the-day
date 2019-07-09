@@ -77,6 +77,10 @@
 
 - You can't add directly data from different components into state because the methods that update state and the actual state always need to live in the exact same component. So you pass down the methods to the children components via props and then use React's state API to update the actual state.
 
+- JSX doesn't have some things that are common in other template libraries like iterators, so to iterate over data and display it we simply use JS more specifically tings like `.map()` or `.forEach()`.
+
+- In order for React to be fast it needs to pin down the part of the component being updated, so when iterating over an array to display data we need to give a unique identifier to each mapped element using the prop `key`.
+
 - React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
@@ -95,3 +99,4 @@
   - The only way to update the actual state inside the update state methods is with React's state API. But you don't want to mutate state by modifying it directly, so you first create a copy of the current state.
   - When updating state with `this.setState()` we don't have to pass the entire state, we can pass only the state that changed.
   - All of the assets that will show up in our app, have to go in the public folder.
+  - Instead of referencing `this.props..` for every piece of data we want to display in JSX, we can use ES6's destructuring (inside `render()` but outside of `return..`) so we can just reference the each prop by it's name.
