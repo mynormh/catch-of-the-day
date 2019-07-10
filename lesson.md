@@ -100,3 +100,5 @@
   - When updating state with `this.setState()` we don't have to pass the entire state, we can pass only the state that changed.
   - All of the assets that will show up in our app, have to go in the public folder.
   - Instead of referencing `this.props..` for every piece of data we want to display in JSX, we can use ES6's destructuring (inside `render()` but outside of `return..`) so we can just reference the each prop by it's name.
+  - A way to make a sort of `if()` statement in JSX (to show one element/component or the other, change text) is to use a ternary operator.
+  - If you need access to the key of a component you have to use a prop other than `key` to pass the key and access it (`key` is only for React's use).
