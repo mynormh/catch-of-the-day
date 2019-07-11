@@ -102,3 +102,5 @@
   - Instead of referencing `this.props..` for every piece of data we want to display in JSX, we can use ES6's destructuring (inside `render()` but outside of `return..`) so we can just reference the each prop by it's name.
   - A way to make a sort of `if()` statement in JSX (to show one element/component or the other, change text) is to use a ternary operator.
   - If you need access to the key of a component you have to use a prop other than `key` to pass the key and access it (`key` is only for React's use).
+  - You could spread state and pass everything as props to another component but it's not a good practice, you'd be making the component hard to read and maintain. So it's better to pass each individual prop, only pass the data that's needed and know exactly what you are passing.
+  - When you have too much code inside the `render()` function it probably means you could separate some parts of it into other components. Another option is to pass some part of your code into other functions that act as `render()` functions (returning pieces of JSX).
