@@ -81,6 +81,11 @@
 
 - In order for React to be fast it needs to pin down the part of the component being updated, so when iterating over an array to display data we need to give a unique identifier to each mapped element using the prop `key`.
 
+- Lifecycles are methods that let us know when certain things are happening. Some of them are:
+
+  - componentDidMount: Called immediately after a component is mounted (loaded into screen)
+  - componentWillUnmount: Called immediately before a component is destroyed. Useful for cleanup (canceled network request, DOM elements created in componentDidMount, etc) and prevent memory leaks.
+
 - React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
@@ -104,3 +109,10 @@
   - If you need access to the key of a component you have to use a prop other than `key` to pass the key and access it (`key` is only for React's use).
   - You could spread state and pass everything as props to another component but it's not a good practice, you'd be making the component hard to read and maintain. So it's better to pass each individual prop, only pass the data that's needed and know exactly what you are passing.
   - When you have too much code inside the `render()` function it probably means you could separate some parts of it into other components. Another option is to pass some part of your code into other functions that act as `render()` functions (returning pieces of JSX).
+  - When a component is mounted and use the componentDidMount lifecycle, we are listening for changes but we are never unlistening for changes (memory leak) so it's important to use the componentWillUnmount lifecycle too.
+
+FIREBASE
+
+A real-time database from Google, really intuitive and easy to use for JS devs. Using web sockets and Rebase (specific to React) for real-time interaction, meaning our stat will be reflected instantly to the database and viceversa.
+
+We need for the component to be mounted so we can mirror the state to the firebase DB.

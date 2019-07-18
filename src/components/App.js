@@ -4,12 +4,27 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
+import base from '../base';
 
 class App extends React.Component {
   state = {
     fishes: {},
     order: {}
   };
+
+  componentDidMount() {
+    // Not to be confused with input refs, this is a firebase ref that makes reference to a piece of data in the DB which will be useful in componentWillUnmount
+    const { params } = this.props.match; // Take the props given by React Router
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: 'fishes'
+    }); // Only sync the fished data of the current store
+  }
+
+  componentWillUnmount() {
+    // Unlistens to changes in the database assigned in componentDidMount
+    base.removeBinding(this.ref);
+  }
 
   addFish = fish => {
     // Take a copy of the existing state
