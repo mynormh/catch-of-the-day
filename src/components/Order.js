@@ -6,7 +6,11 @@ class Order extends React.Component {
   renderOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
-    const isAvailable = fish.status === 'available';
+    // Check fish first in case it hasn't loaded from rebase yet
+    const isAvailable = fish && fish.status === 'available';
+    // Make sure the fish is loaded before it continues, by rendering null it will exit immediately (avoiding blinking unavailable state)
+    if (!fish) return null;
+
     if (!isAvailable) {
       return (
         <li key={key}>
@@ -27,7 +31,7 @@ class Order extends React.Component {
     const total = orderIds.reduce((prevTotal, key) => {
       const fish = this.props.fishes[key];
       const count = this.props.order[key];
-      // We check fish first in case fish is deleted entirely from state (e.g. from DevTools)
+      // We check fish first in case fish is deleted entirely from state (e.g. from DevTools) or not loaded yet from rebase
       const isAvailable = fish && fish.status === 'available';
 
       if (isAvailable) {

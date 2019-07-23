@@ -19,6 +19,19 @@ class App extends React.Component {
       context: this,
       state: 'fishes'
     }); // Only sync the fished data of the current store
+
+    // Reinstate localStorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    );
   }
 
   componentWillUnmount() {
