@@ -81,6 +81,8 @@
 
 - In order for React to be fast it needs to pin down the part of the component being updated, so when iterating over an array to display data we need to give a unique identifier to each mapped element using the prop `key`.
 
+- React doesn't like when state is put into an editable area without you having a plan to update it, because it will have state in two places (in the `state` object and in the editable area). So React intercepts whatever is written in the editable area, undo the change and then gives you the new value, via Proxy, to be put in state (not directly the editable area)
+
 - Lifecycles are methods that let us know when certain things are happening. Some of them are:
 
   - componentDidMount: Called immediately after a component is mounted (loaded into screen)
@@ -111,7 +113,8 @@
   - You could spread state and pass everything as props to another component but it's not a good practice, you'd be making the component hard to read and maintain. So it's better to pass each individual prop, only pass the data that's needed and know exactly what you are passing.
   - When you have too much code inside the `render()` function it probably means you could separate some parts of it into other components. Another option is to pass some part of your code into other functions that act as `render()` functions (returning pieces of JSX).
   - When a component is mounted and use the componentDidMount lifecycle, we are listening for changes but we are never unlistening for changes (memory leak) so it's important to use the componentWillUnmount lifecycle too.
-  - In the case where we use localStorage, if we change state in componentDidMount it will automatically fire componentDidUpdate, so we'll need to reinstate localStorage
+  - In the case where we use localStorage, if we change state in componentDidMount it will automatically fire componentDidUpdate, so we'll need to reinstate localStorage.
+  - Another way to handle input value changes is to handle it via the `event` argument itself. When using this method it's useful to name the input the same as the property of the object, so we can use computed object properties to set all of the values.
 
 FIREBASE
 
