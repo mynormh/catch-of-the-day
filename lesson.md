@@ -83,6 +83,12 @@
 
 - React doesn't like when state is put into an editable area without you having a plan to update it, because it will have state in two places (in the `state` object and in the editable area). So React intercepts whatever is written in the editable area, undo the change and then gives you the new value, via Proxy, to be put in state (not directly the editable area)
 
+- For animation in React, you can animate when the lifecycle methods are executed (e.g. componentDidMount, componentWillUnmount, etc.) To animate an element you have to wrap each element in a `<CSSTransition></CSSTransition>` and then in a `<TransitionGroup></TransitionGroup>`.
+
+- `<CSSTransition></CSSTransition>` will give you the state of the component as css classes, meaning it will add some classes to the component depending on the lifecycle and use those classes to animate them from css.
+
+- If you want to add something to the build process, like compiling stylus, you'd have to eject from Create React App. Another way to accomplish this is by doing it outside the webpack configuration, like compiling stylus with npm scripts. And to run both the separate process and the CRA process you can use the concurrently package.
+
 - Lifecycles are methods that let us know when certain things are happening. Some of them are:
 
   - componentDidMount: Called immediately after a component is mounted (loaded into screen)
@@ -115,6 +121,8 @@
   - When a component is mounted and use the componentDidMount lifecycle, we are listening for changes but we are never unlistening for changes (memory leak) so it's important to use the componentWillUnmount lifecycle too.
   - In the case where we use localStorage, if we change state in componentDidMount it will automatically fire componentDidUpdate, so we'll need to reinstate localStorage.
   - Another way to handle input value changes is to handle it via the `event` argument itself. When using this method it's useful to name the input the same as the property of the object, so we can use computed object properties to set all of the values.
+  - `<CSSTransition></CSSTransition>` cannot animate a component that renders `null`.
+  - For transition options that are used more than once you can store them in an object and then just destructure that object in the `<CSSTransition></CSSTransition>`.
 
 FIREBASE
 
