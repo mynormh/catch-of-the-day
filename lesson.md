@@ -89,6 +89,10 @@
 
 - If you want to add something to the build process, like compiling stylus, you'd have to eject from Create React App. Another way to accomplish this is by doing it outside the webpack configuration, like compiling stylus with npm scripts. And to run both the separate process and the CRA process you can use the concurrently package.
 
+- Proptypes allow us to validate the data we're passing in via props and also specify ahead of time what needs to be passed in as props. This can also be accomplished with tools like TypeScript or Flow.
+
+- Proptypes will report any errors in the browser's devtools when running React in development mode.
+
 - Lifecycles are methods that let us know when certain things are happening. Some of them are:
 
   - componentDidMount: Called immediately after a component is mounted (loaded into screen)
@@ -123,6 +127,7 @@
   - Another way to handle input value changes is to handle it via the `event` argument itself. When using this method it's useful to name the input the same as the property of the object, so we can use computed object properties to set all of the values.
   - `<CSSTransition></CSSTransition>` cannot animate a component that renders `null`.
   - For transition options that are used more than once you can store them in an object and then just destructure that object in the `<CSSTransition></CSSTransition>`.
+  - We can be more specific about the PropType of an object by using `PropType.shape({})` instead of just `PropType.object`.
 
 FIREBASE
 

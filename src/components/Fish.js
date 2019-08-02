@@ -1,7 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatPrice } from '../helpers';
 
 class Fish extends React.Component {
+  // static makes it so propTypes is only declared once, since it'll be the same for every Fish Component
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      status: PropTypes.string,
+      price: PropTypes.number
+    }),
+    addToOrder: PropTypes.func
+  };
   handleClick = () => {
     this.props.addToOrder(this.props.index);
   };

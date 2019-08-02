@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
@@ -9,6 +10,10 @@ class StorePicker extends React.Component {
   //   this.goToStore = this.goToStore.bind(this);
   // }
   myInput = React.createRef();
+
+  static propTypes = {
+    history: PropTypes.object
+  };
 
   // Bind custom method to the instance of the component using class property and arrow function
   goToStore = event => {
