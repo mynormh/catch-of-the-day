@@ -140,3 +140,7 @@ We need for the component to be mounted so we can mirror the state to the fireba
 NOW
 
 A simple serverless deployment service. We can quickly deploy our application with the help of the now cli and the npm package `serve`. [Catch Of The Day](https://cotd.mynorrmh.now.sh/)
+
+NETLIFY
+
+A simple and fast static websites deployment service. With the help of the netlify cli and the npm package `serve` we can quickly deploy our app. We just need to tell Netlify this is a SPA in a _redirects file. [Catch Of The Day](https://mynormh-cotd.netlify.com/)
