@@ -99,6 +99,8 @@
   - componentWillUnmount: Called immediately before a component is destroyed. Useful for cleanup (canceled network request, DOM elements created in componentDidMount, etc) and prevent memory leaks.
   - componentDidUpdate: Call immediately after an update occurs.
 
+- To build the app for production we do it with `npm run build`, it will take all of our files (JS, CSS, etc.) and compile it into a production ready bundle (including source maps for developers).
+
 - React rules/tips:
   - To assign a class to a element use `className=""`.
   - If you want to return sibling elements in `render()` you can use `<React.Fragment></React.Fragment>` and it will render only the enclosed elements to the DOM, otherwise you have to return the JSX elements in an enclosing tag (e.g. dummy `<div></div>` which could add extra `<div></div>`s to the markup.
@@ -134,3 +136,7 @@ FIREBASE
 A real-time database from Google, really intuitive and easy to use for JS devs. Using web sockets and Rebase (specific to React) for real-time interaction, meaning our stat will be reflected instantly to the database and viceversa.
 
 We need for the component to be mounted so we can mirror the state to the firebase DB.
+
+NOW
+
+A simple serverless deployment service. We can quickly deploy our application with the help of the now cli and the npm package `serve`. [Catch Of The Day](https://cotd.mynorrmh.now.sh/)

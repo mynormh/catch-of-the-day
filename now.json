@@ -3,6 +3,13 @@
   "name": "cotd",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [
+    {
+      "src": "/images/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=3156000,immutable"
+      },
+      "dest": "/images/$1"
+    },
     { "src": "^/static/(.*)", "dest": "/static/$1" },
     { "src": "^/favicon.ico", "dest": "/favicon.ico" },
     { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
