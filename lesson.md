@@ -1,6 +1,6 @@
 # Lessons
 
-- The `react-scripts` npm package allows us to forget about stuff like babel and webpack config and just get straight into building our React app. If we wanna see those config files we have to do something called "eject" which will give us full control over it.
+- The `react-scripts` npm package allows us to forget about stuff like babel, eslint, testing and webpack config and just get straight into building our React app. If we wanna see those config files we have to do something called "eject" which will give us full control over it.
 
 - A component is a reusable piece of a website/app and everything in React is a component. A component encapsulates HTML, CSS and/or JS.
 
@@ -143,4 +143,8 @@ A simple serverless deployment service. We can quickly deploy our application wi
 
 NETLIFY
 
-A simple and fast static websites deployment service. With the help of the netlify cli and the npm package `serve` we can quickly deploy our app. We just need to tell Netlify this is a SPA in a _redirects file. [Catch Of The Day](https://mynormh-cotd.netlify.com/)
+A simple and fast static websites deployment service. With the help of the netlify cli and the npm package `serve` we can quickly deploy our app. We just need to tell Netlify this is a SPA in a \_redirects file. [Catch Of The Day](https://mynormh-cotd.netlify.com/)
+
+SERVER (APACHE)
+
+When deploying to a server it is important that it is a subdomain and not a subfolder. Putting React in a subfolder is possible but we need to modify both the browser router and CRA.
